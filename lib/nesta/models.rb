@@ -2,11 +2,16 @@ require 'time'
 
 require 'rdiscount'
 
-Tilt.register Tilt::MarukuTemplate, 'mdown', 'md'
-Tilt.register Tilt::KramdownTemplate, 'mdown', 'md'
-Tilt.register Tilt::BlueClothTemplate, 'mdown', 'md'
-Tilt.register Tilt::RDiscountTemplate, 'mdown', 'md'
-Tilt.register Tilt::RedcarpetTemplate, 'mdown', 'md'
+def register_markdown_processor(cls)
+  Tilt.register Tilt.const_get(cls), 'mdown', 'md'
+rescue LoadError
+end
+
+register_markdown_processor :MarukuTemplate
+register_markdown_processor :KramdownTemplate
+register_markdown_processor :BlueClothTemplate
+register_markdown_processor :RDiscountTemplate
+register_markdown_processor :RedcarpetTemplate
 
 module Nesta
   class HeadingNotSet < RuntimeError; end
