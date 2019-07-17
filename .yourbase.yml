@@ -1,0 +1,20 @@
+dependencies:
+  build:
+    - ruby:2.5.3
+
+build_targets:
+  - name: default
+    commands:
+      - git submodule update --init
+      - gem install bundler 
+      - bundle install 
+      - bundle exec rake test
+    tags:
+     channel: experimental
+
+ci:
+  builds:
+    - name: test
+      build_target: default
+
+      ##trivial commit
