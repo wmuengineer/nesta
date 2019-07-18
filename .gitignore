@@ -6,6 +6,7 @@
 /.rbenv-version
 /.ruby-version
 /.rvmrc
+Gemfile.lock
 /config/config.yml
 /config/deploy.rb
 /db/*.db
