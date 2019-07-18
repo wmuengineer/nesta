@@ -8,6 +8,8 @@ build_targets:
       - git submodule update --init
       - gem install bundler 
       - bundle install 
+    tags:
+     channel: experimental
 
 ci:
   builds:
