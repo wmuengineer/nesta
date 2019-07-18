@@ -16,4 +16,3 @@ ci:
     - name: test
       build_target: default
 
-      ##trivial commit
