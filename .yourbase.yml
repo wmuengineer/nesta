@@ -6,8 +6,9 @@ build_targets:
   - name: default
     commands:
       - git submodule update --init
-      - gem install bundler 
+      - gem install bundler -v 1.17.2
       - bundle install 
+      - bundle exec rake test
     tags:
      channel: experimental
 
